@@ -1,0 +1,1593 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Conecta Cidadão - Tecnologia para Todos. Educação digital, inclusão e autonomia.">
+<title>Conecta Cidadão | Tecnologia para Todos</title>
+
+<style>
+:root {
+    --primary: #0f766e;
+    --primary-dark: #115e59;
+    --secondary: #14b8a6;
+    --background: #f0fdfa;
+    --white: #ffffff;
+    --text: #1f2937;
+    --muted: #64748b;
+    --border: #dce9e7;
+    --shadow: 0 10px 30px rgba(15, 118, 110, 0.10);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.container {
+    width: min(1120px, 92%);
+    margin: auto;
+}
+
+/* ACESSIBILIDADE */
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    background: var(--primary);
+    color: white;
+    padding: 12px;
+    z-index: 9999;
+}
+
+.skip-link:focus {
+    left: 10px;
+    top: 10px;
+}
+
+.accessibility-tools {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.accessibility-tools button {
+    background: white;
+    border: 1px solid var(--border);
+    color: var(--primary);
+    padding: 7px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* CABEÇALHO */
+
+header {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--primary);
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.logo-icon {
+    background: var(--primary);
+    color: white;
+    border-radius: 12px;
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: var(--primary);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+/* BOTÕES */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 22px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: white;
+}
+
+.btn-outline:hover {
+    background: #ccfbf1;
+}
+
+/* INÍCIO */
+
+.hero {
+    padding: 90px 0;
+    background: linear-gradient(135deg, #ccfbf1, #f0fdfa, #e0f2fe);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.tag {
+    display: inline-block;
+    background: #d1fae5;
+    color: var(--primary-dark);
+    padding: 7px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.15;
+    margin-bottom: 22px;
+    color: #134e4a;
+}
+
+.hero h1 span {
+    color: var(--secondary);
+}
+
+.hero p {
+    font-size: 18px;
+    color: #475569;
+    margin-bottom: 30px;
+    max-width: 580px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hero-illustration {
+    background: white;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.hero-illustration .emoji {
+    font-size: 100px;
+}
+
+.hero-illustration h3 {
+    color: var(--primary);
+    margin-top: 15px;
+}
+
+.hero-illustration p {
+    font-size: 15px;
+    margin: 10px auto 0;
+}
+
+/* SEÇÕES */
+
+section {
+    padding: 75px 0;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 45px;
+}
+
+.section-heading .tag {
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+    font-size: 35px;
+    color: #134e4a;
+    margin-bottom: 15px;
+}
+
+.section-heading p {
+    color: var(--muted);
+}
+
+/* SOBRE */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.about-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.about-card .icon {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.about-card h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+/* PROJETO DE EXTENSÃO */
+
+.project-section {
+    background: #f8fafc;
+}
+
+.project-intro {
+    background: white;
+    border-left: 5px solid var(--primary);
+    padding: 30px;
+    border-radius: 14px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+}
+
+.project-intro h3 {
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.project-card {
+    background: white;
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.project-card h3 {
+    color: var(--primary);
+    margin-bottom: 14px;
+}
+
+.project-card .project-icon {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.project-card ul {
+    padding-left: 20px;
+}
+
+.project-card li {
+    margin-bottom: 8px;
+}
+
+.project-card p {
+    color: var(--muted);
+}
+
+.project-highlight {
+    background: #e0f2fe;
+    border-radius: 16px;
+    padding: 30px;
+    margin-top: 25px;
+}
+
+.project-highlight h3 {
+    color: #075985;
+    margin-bottom: 12px;
+}
+
+/* TUTORIAIS */
+
+.tutorial-section {
+    background: white;
+}
+
+.search-box {
+    max-width: 600px;
+    margin: 0 auto 35px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: var(--primary);
+}
+
+.tutorial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.tutorial-card {
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    background: white;
+    transition: 0.3s;
+}
+
+.tutorial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.tutorial-card-top {
+    background: #ccfbf1;
+    padding: 30px;
+    text-align: center;
+    font-size: 55px;
+}
+
+.tutorial-card-content {
+    padding: 25px;
+}
+
+.tutorial-card-content h3 {
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.tutorial-card-content p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.tutorial-card-content a {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.no-results {
+    display: none;
+    text-align: center;
+    color: var(--muted);
+    margin: 25px 0;
+}
+
+/* VIDEOAULAS */
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.video-card {
+    background: white;
+    padding: 28px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+}
+
+.video-card h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.video-card p {
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+/* SEGURANÇA */
+
+.security-section {
+    background: #134e4a;
+    color: white;
+}
+
+.security-section .section-heading h2 {
+    color: white;
+}
+
+.security-section .section-heading p {
+    color: #ccfbf1;
+}
+
+.security-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.security-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 25px;
+    border-radius: 16px;
+}
+
+.security-card .icon {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.security-card h3 {
+    margin-bottom: 10px;
+}
+
+.security-card p {
+    color: #d1fae5;
+    font-size: 14px;
+}
+
+/* SERVIÇOS */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px;
+}
+
+.service-card h3 {
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+/* ODS */
+
+.ods-section {
+    background: #f8fafc;
+}
+
+.ods-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.ods-card {
+    border-radius: 20px;
+    padding: 35px;
+    color: white;
+}
+
+.ods-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.ods-4 {
+    background: #c5192d;
+}
+
+.ods-10 {
+    background: #dd1367;
+}
+
+.ods-number {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+/* CTA */
+
+.cta {
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
+    color: white;
+    text-align: center;
+    border-radius: 25px;
+    padding: 55px 30px;
+}
+
+.cta h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.cta p {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    color: #e0f2fe;
+}
+
+.cta .btn {
+    background: white;
+    color: var(--primary);
+}
+
+/* RODAPÉ */
+
+footer {
+    background: #0f172a;
+    color: white;
+    padding: 50px 0 25px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 35px;
+    margin-bottom: 35px;
+}
+
+footer h3 {
+    margin-bottom: 15px;
+}
+
+footer p,
+footer a {
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer li {
+    margin-bottom: 10px;
+}
+
+footer a:hover {
+    color: #5eead4;
+}
+
+.footer-bottom {
+    border-top: 1px solid #334155;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+/* VOLTAR AO TOPO */
+
+.back-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 23px;
+    display: none;
+    z-index: 900;
+    box-shadow: var(--shadow);
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-illustration {
+        max-width: 450px;
+        margin: auto;
+    }
+
+    .about-grid,
+    .tutorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .security-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 650px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 15px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        background: white;
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        padding: 8px 0;
+    }
+
+    .hero {
+        padding: 55px 0;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero-illustration .emoji {
+        font-size: 75px;
+    }
+
+    .about-grid,
+    .tutorial-grid,
+    .video-grid,
+    .security-grid,
+    .services-grid,
+    .ods-grid,
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 29px;
+    }
+
+    section {
+        padding: 55px 0;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .cta h2 {
+        font-size: 28px;
+    }
+}
+
+/* REDUÇÃO DE MOVIMENTO */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+
+<header>
+    <div class="container navbar">
+
+        <a href="#inicio" class="logo">
+            <div class="logo-icon">🌐</div>
+            <span>Conecta Cidadão</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle"
+        aria-label="Abrir menu de navegação"
+        aria-expanded="false">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#projeto">Projeto de Extensão</a></li>
+            <li><a href="#tutoriais">Tutoriais</a></li>
+            <li><a href="#seguranca">Segurança</a></li>
+            <li><a href="#ods">ODS</a></li>
+        </ul>
+
+        <div class="accessibility-tools">
+            <button id="fontIncrease" aria-label="Aumentar fonte">A+</button>
+            <button id="fontDecrease" aria-label="Diminuir fonte">A-</button>
+        </div>
+
+    </div>
+</header>
+
+<main id="conteudo">
+
+<!-- INÍCIO -->
+
+<section class="hero" id="inicio">
+    <div class="container hero-content">
+
+        <div>
+            <span class="tag">Inclusão digital para todos</span>
+
+            <h1>
+                A tecnologia é para <span>todos.</span>
+            </h1>
+
+            <p>
+                Aprenda a utilizar o celular, a internet e os serviços digitais
+                com mais segurança, autonomia e confiança.
+                O conhecimento digital transforma vidas e aproxima pessoas.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#tutoriais" class="btn btn-primary">
+                    Começar a aprender →
+                </a>
+
+                <a href="#projeto" class="btn btn-outline">
+                    Conheça o projeto
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-illustration">
+            <div class="emoji">📱💻</div>
+            <h3>Conectando pessoas e oportunidades</h3>
+            <p>
+                Um espaço para aprender, descobrir e desenvolver
+                novas habilidades digitais.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- SOBRE -->
+
+<section id="sobre">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="tag">Sobre nós</span>
+            <h2>O que é o Conecta Cidadão?</h2>
+            <p>
+                Uma iniciativa de inclusão digital que busca facilitar o acesso
+                à tecnologia e promover autonomia na utilização de ferramentas digitais.
+            </p>
+        </div>
+
+        <div class="about-grid">
+
+            <div class="about-card">
+                <div class="icon">🎯</div>
+                <h3>Nosso objetivo</h3>
+                <p>
+                    Promover o aprendizado tecnológico de maneira simples,
+                    acessível e inclusiva, respeitando o ritmo de cada pessoa.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <div class="icon">🤝</div>
+                <h3>Inclusão digital</h3>
+                <p>
+                    Ajudar pessoas que enfrentam dificuldades com a tecnologia
+                    a terem mais acesso à informação, comunicação e serviços.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <div class="icon">💡</div>
+                <h3>Autonomia</h3>
+                <p>
+                    Incentivar o uso independente de celulares, aplicativos,
+                    internet e ferramentas digitais no dia a dia.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- DOCUMENTAÇÃO ACADÊMICA DO PROJETO DE EXTENSÃO -->
+
+<section class="project-section" id="projeto">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="tag">Projeto acadêmico de extensão</span>
+            <h2>Conecta Cidadão — Tecnologia para Todos</h2>
+            <p>
+                Educação digital, inclusão social e desenvolvimento
+                da autonomia tecnológica.
+            </p>
+        </div>
+
+        <!-- TÍTULO E JUSTIFICATIVA -->
+
+        <div class="project-intro">
+            <h3>📌 Título do projeto</h3>
+            <p>
+                <strong>Conecta Cidadão — Tecnologia para Todos:
+                Inclusão e Educação Digital.</strong>
+            </p>
+
+            <br>
+
+            <h3>📖 Justificativa</h3>
+            <p>
+                A tecnologia está cada vez mais presente nas atividades cotidianas,
+                como comunicação, acesso à informação, serviços bancários,
+                consultas, agendamentos e utilização de serviços públicos.
+                Entretanto, muitas pessoas ainda enfrentam dificuldades para
+                utilizar ferramentas digitais, seja por falta de conhecimento,
+                acesso, orientação ou familiaridade com dispositivos tecnológicos.
+            </p>
+
+            <p>
+                Essas dificuldades podem limitar a autonomia, dificultar o acesso
+                a direitos e serviços e ampliar as desigualdades sociais.
+                Diante desse cenário, o projeto Conecta Cidadão busca contribuir
+                para a inclusão digital por meio de um ambiente educativo,
+                acessível e de fácil compreensão, oferecendo orientações básicas
+                sobre tecnologia, internet, aplicativos, cidadania digital
+                e segurança online.
+            </p>
+
+            <p>
+                A proposta pretende aproximar a tecnologia da realidade das pessoas,
+                promovendo o conhecimento e incentivando o uso consciente,
+                seguro e independente dos recursos digitais.
+            </p>
+        </div>
+
+        <div class="project-grid">
+
+            <!-- OBJETIVO GERAL -->
+
+            <div class="project-card">
+                <div class="project-icon">🎯</div>
+                <h3>Objetivo geral</h3>
+                <p>
+                    Promover a inclusão digital por meio da disponibilização
+                    de conteúdos educativos e orientações acessíveis,
+                    contribuindo para que pessoas com dificuldades no uso
+                    da tecnologia desenvolvam habilidades digitais,
+                    autonomia e segurança na utilização de ferramentas
+                    e serviços online.
+                </p>
+            </div>
+
+            <!-- OBJETIVOS ESPECÍFICOS -->
+
+            <div class="project-card">
+                <div class="project-icon">📋</div>
+                <h3>Objetivos específicos</h3>
+                <ul>
+                    <li>Facilitar o acesso ao conhecimento tecnológico.</li>
+                    <li>Ensinar funcionalidades básicas de smartphones.</li>
+                    <li>Orientar sobre o uso de aplicativos de comunicação.</li>
+                    <li>Estimular a navegação e pesquisa na internet.</li>
+                    <li>Apresentar serviços digitais de utilidade pública.</li>
+                    <li>Promover a segurança e a privacidade online.</li>
+                    <li>Incentivar a autonomia e a cidadania digital.</li>
+                </ul>
+            </div>
+
+            <!-- PÚBLICO-ALVO -->
+
+            <div class="project-card">
+                <div class="project-icon">👥</div>
+                <h3>Público-alvo</h3>
+                <p>
+                    O projeto é direcionado principalmente a pessoas com pouca
+                    familiaridade com recursos tecnológicos, especialmente
+                    idosos, pessoas com dificuldades de acesso ou utilização
+                    de dispositivos digitais, indivíduos com baixo nível
+                    de conhecimento tecnológico e pessoas que desejam
+                    aprender a utilizar a internet e serviços digitais
+                    com mais segurança e independência.
+                </p>
+            </div>
+
+            <!-- METODOLOGIA -->
+
+            <div class="project-card">
+                <div class="project-icon">🛠️</div>
+                <h3>Metodologia</h3>
+                <p>
+                    O projeto será desenvolvido por meio da criação de um site
+                    educativo, utilizando tecnologias de desenvolvimento web,
+                    como HTML, CSS e JavaScript.
+                </p>
+
+                <p>
+                    A plataforma será organizada em conteúdos informativos,
+                    tutoriais, links para materiais educativos,
+                    orientações de segurança digital e acesso a serviços
+                    públicos online.
+                </p>
+
+                <p>
+                    A linguagem será simples, com estrutura intuitiva,
+                    recursos de acessibilidade e organização visual
+                    que facilite a navegação por pessoas com diferentes
+                    níveis de conhecimento tecnológico.
+                </p>
+            </div>
+
+            <!-- RESULTADOS ESPERADOS -->
+
+            <div class="project-card">
+                <div class="project-icon">📈</div>
+                <h3>Resultados esperados</h3>
+                <ul>
+                    <li>Maior acesso ao conhecimento digital.</li>
+                    <li>Desenvolvimento de habilidades tecnológicas básicas.</li>
+                    <li>Mais autonomia no uso de smartphones e internet.</li>
+                    <li>Melhor compreensão dos serviços digitais.</li>
+                    <li>Maior conscientização sobre golpes virtuais.</li>
+                    <li>Redução das dificuldades relacionadas à exclusão digital.</li>
+                    <li>Incentivo à participação social por meio da tecnologia.</li>
+                </ul>
+            </div>
+
+            <!-- CONCLUSÃO -->
+
+            <div class="project-card">
+                <div class="project-icon">🌱</div>
+                <h3>Conclusão</h3>
+                <p>
+                    A inclusão digital é fundamental para a participação
+                    ativa na sociedade contemporânea. O acesso à tecnologia
+                    e ao conhecimento possibilita novas oportunidades,
+                    facilita a comunicação e contribui para o exercício
+                    da cidadania.
+                </p>
+
+                <p>
+                    O Conecta Cidadão — Tecnologia para Todos busca
+                    utilizar a tecnologia como instrumento de transformação
+                    social, promovendo aprendizado, acessibilidade
+                    e autonomia.
+                </p>
+
+                <p>
+                    Dessa forma, o projeto reforça a importância de uma
+                    sociedade mais inclusiva, na qual o conhecimento digital
+                    esteja ao alcance de todos.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ODS RELACIONADOS AO PROJETO -->
+
+        <div class="project-highlight">
+            <h3>🌍 ODS relacionados ao projeto</h3>
+
+            <p>
+                O projeto Conecta Cidadão está alinhado à Agenda 2030
+                da Organização das Nações Unidas, contribuindo especialmente
+                para o Objetivo de Desenvolvimento Sustentável 4,
+                relacionado à educação de qualidade, e para o ODS 10,
+                que busca reduzir as desigualdades.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- TUTORIAIS -->
+
+<section class="tutorial-section" id="tutoriais">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="tag">Aprenda na prática</span>
+            <h2>Tutoriais digitais</h2>
+            <p>
+                Explore conteúdos educativos para aprender a utilizar
+                diferentes ferramentas e recursos tecnológicos.
+            </p>
+        </div>
+
+        <div class="search-box">
+            <input type="search"
+            id="tutorialSearch"
+            placeholder="🔎 Buscar tutorial..."
+            aria-label="Buscar tutorial">
+        </div>
+
+        <div class="tutorial-grid" id="tutorialGrid">
+
+            <article class="tutorial-card" data-search="celular smartphone configurações">
+                <div class="tutorial-card-top">📱</div>
+                <div class="tutorial-card-content">
+                    <h3>Conhecendo o celular</h3>
+                    <p>
+                        Aprenda funções básicas, configurações,
+                        Wi-Fi, volume, brilho e aplicativos.
+                    </p>
+                    <a href="https://www.youtube.com/results?search_query=curso+basico+celular+para+iniciantes"
+                    target="_blank" rel="noopener noreferrer">
+                        Assistir tutorial →
+                    </a>
+                </div>
+            </article>
+
+            <article class="tutorial-card" data-search="whatsapp mensagens chamadas fotos">
+                <div class="tutorial-card-top">💬</div>
+                <div class="tutorial-card-content">
+                    <h3>WhatsApp</h3>
+                    <p>
+                        Envie mensagens, áudios, fotos, faça chamadas
+                        e aprenda a utilizar o aplicativo.
+                    </p>
+                    <a href="https://www.youtube.com/results?search_query=como+usar+whatsapp+para+iniciantes"
+                    target="_blank" rel="noopener noreferrer">
+                        Assistir tutorial →
+                    </a>
+                </div>
+            </article>
+
+            <article class="tutorial-card" data-search="email gmail correio eletrônico">
+                <div class="tutorial-card-top">📧</div>
+                <div class="tutorial-card-content">
+                    <h3>Como usar o e-mail</h3>
+                    <p>
+                        Aprenda a criar uma conta, enviar mensagens,
+                        anexar arquivos e recuperar sua senha.
+                    </p>
+                    <a href="https://www.youtube.com/results?search_query=como+usar+gmail+para+iniciantes"
+                    target="_blank" rel="noopener noreferrer">
+                        Assistir tutorial →
+                    </a>
+                </div>
+            </article>
+
+            <article class="tutorial-card" data-search="internet google pesquisa navegador">
+                <div class="tutorial-card-top">🔎</div>
+                <div class="tutorial-card-content">
+                    <h3>Pesquisando na internet</h3>
+                    <p>
+                        Descubra como realizar pesquisas,
+                        encontrar informações e navegar em sites.
+                    </p>
+                    <a href="https://www.youtube.com/results?search_query=como+pesquisar+na+internet+para+iniciantes"
+                    target="_blank" rel="noopener noreferrer">
+                        Assistir tutorial →
+                    </a>
+                </div>
+            </article>
+
+            <article class="tutorial-card" data-search="aplicativos baixar instalar play store app store">
+                <div class="tutorial-card-top">📲</div>
+                <div class="tutorial-card-content">
+                    <h3>Instalando aplicativos</h3>
+                    <p>
+                        Aprenda a baixar, instalar, atualizar
+                        e remover aplicativos do seu celular.
+                    </p>
+                    <a href="https://www.youtube.com/results?search_query=como+baixar+aplicativos+no+celular+para+iniciantes"
+                    target="_blank" rel="noopener noreferrer">
+                        Assistir tutorial →
+                    </a>
+                </div>
+            </article>
+
+            <article class="tutorial-card" data-search="videoconferência chamada video google meet zoom">
+                <div class="tutorial-card-top">🎥</div>
+                <div class="tutorial-card-content">
+                    <h3>Videochamadas</h3>
+                    <p>
+                        Aprenda a realizar chamadas de vídeo
+                        e participar de reuniões online.
+                    </p>
+                    <a href="https://www.youtube.com/results?search_query=como+fazer+videochamada+para+iniciantes"
+                    target="_blank" rel="noopener noreferrer">
+                        Assistir tutorial →
+                    </a>
+                </div>
+            </article>
+
+        </div>
+
+        <p class="no-results" id="noResults">
+            Nenhum tutorial encontrado. Tente pesquisar outro termo.
+        </p>
+
+    </div>
+</section>
+
+<!-- VIDEOAULAS -->
+
+<section id="videoaulas">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="tag">Aprendizagem audiovisual</span>
+            <h2>Videoaulas e conteúdos</h2>
+            <p>
+                Aprender assistindo também é uma forma de desenvolver
+                habilidades e conquistar autonomia digital.
+            </p>
+        </div>
+
+        <div class="video-grid">
+
+            <div class="video-card">
+                <h3>🎓 Tecnologia para iniciantes</h3>
+                <p>
+                    Conteúdos para quem está começando a utilizar
+                    smartphones, computadores e internet.
+                </p>
+                <a class="btn btn-primary"
+                href="https://www.youtube.com/results?search_query=tecnologia+para+iniciantes+curso+gratuito"
+                target="_blank" rel="noopener noreferrer">
+                    Ver aulas
+                </a>
+            </div>
+
+            <div class="video-card">
+                <h3>🌐 Internet e cidadania</h3>
+                <p>
+                    Aprenda a utilizar a internet para acessar informações,
+                    serviços e oportunidades.
+                </p>
+                <a class="btn btn-primary"
+                href="https://www.youtube.com/results?search_query=curso+internet+e+cidadania+digital"
+                target="_blank" rel="noopener noreferrer">
+                    Ver aulas
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SEGURANÇA DIGITAL -->
+
+<section class="security-section" id="seguranca">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="tag">Proteja-se</span>
+            <h2>Segurança no mundo digital</h2>
+            <p>
+                Conhecer os riscos da internet é essencial para
+                navegar com segurança e proteger seus dados pessoais.
+            </p>
+        </div>
+
+        <div class="security-grid">
+
+            <div class="security-card">
+                <div class="icon">🔐</div>
+                <h3>Senhas seguras</h3>
+                <p>
+                    Utilize senhas fortes, diferentes para cada serviço
+                    e evite compartilhar suas credenciais.
+                </p>
+            </div>
+
+            <div class="security-card">
+                <div class="icon">🚨</div>
+                <h3>Golpes digitais</h3>
+                <p>
+                    Desconfie de mensagens urgentes, ofertas exageradas
+                    e pedidos de dinheiro inesperados.
+                </p>
+            </div>
+
+            <div class="security-card">
+                <div class="icon">🔗</div>
+                <h3>Links suspeitos</h3>
+                <p>
+                    Não clique em links desconhecidos.
+                    Verifique sempre a origem antes de abrir.
+                </p>
+            </div>
+
+            <div class="security-card">
+                <div class="icon">🛡️</div>
+                <h3>Dados pessoais</h3>
+                <p>
+                    Evite compartilhar documentos, códigos de verificação
+                    e informações pessoais com desconhecidos.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SERVIÇOS DIGITAIS -->
+
+<section id="servicos">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="tag">Cidadania digital</span>
+            <h2>Serviços digitais ao seu alcance</h2>
+            <p>
+                A internet também pode facilitar o acesso a serviços públicos
+                e tornar tarefas do cotidiano mais práticas.
+            </p>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <h3>🏛️ Gov.br</h3>
+                <p>
+                    Acesse serviços do governo, consulte documentos,
+                    acompanhe solicitações e utilize serviços digitais.
+                </p>
+                <a class="btn btn-primary"
+                href="https://www.gov.br/"
+                target="_blank" rel="noopener noreferrer">
+                    Acessar Gov.br
+                </a>
+            </div>
+
+            <div class="service-card">
+                <h3>💳 Serviços e informações</h3>
+                <p>
+                    Aprenda a localizar serviços públicos, informações oficiais
+                    e recursos disponíveis na internet.
+                </p>
+                <a class="btn btn-outline"
+                href="https://www.gov.br/pt-br/servicos"
+                target="_blank" rel="noopener noreferrer">
+                    Conhecer serviços
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ODS -->
+
+<section class="ods-section" id="ods">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="tag">Agenda 2030</span>
+            <h2>Objetivos de Desenvolvimento Sustentável</h2>
+            <p>
+                O projeto está alinhado aos Objetivos de Desenvolvimento
+                Sustentável da Organização das Nações Unidas.
+            </p>
+        </div>
+
+        <div class="ods-grid">
+
+            <div class="ods-card ods-4">
+                <div class="ods-number">ODS 4</div>
+                <h3>Educação de Qualidade</h3>
+                <p>
+                    Promover oportunidades de aprendizagem e ampliar
+                    o acesso ao conhecimento, incluindo a educação digital.
+                </p>
+            </div>
+
+            <div class="ods-card ods-10">
+                <div class="ods-number">ODS 10</div>
+                <h3>Redução das Desigualdades</h3>
+                <p>
+                    Contribuir para a inclusão social, reduzir barreiras
+                    de acesso à tecnologia e ampliar oportunidades.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CHAMADA FINAL -->
+
+<section>
+    <div class="container">
+
+        <div class="cta">
+            <h2>O conhecimento transforma. A tecnologia conecta.</h2>
+
+            <p>
+                Aprender algo novo é o primeiro passo para conquistar
+                mais autonomia, segurança e oportunidades.
+                A tecnologia deve ser uma ferramenta acessível a todos.
+            </p>
+
+            <a href="#tutoriais" class="btn">
+                Explore nossos tutoriais →
+            </a>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<!-- RODAPÉ -->
+
+<footer>
+    <div class="container">
+
+        <div class="footer-content">
+
+            <div>
+                <h3>🌐 Conecta Cidadão</h3>
+                <p>
+                    Tecnologia para Todos.
+                    Promovendo inclusão, conhecimento
+                    e autonomia digital.
+                </p>
+            </div>
+
+            <div>
+                <h3>Navegação</h3>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre o projeto</a></li>
+                    <li><a href="#projeto">Projeto de Extensão</a></li>
+                    <li><a href="#tutoriais">Tutoriais</a></li>
+                    <li><a href="#seguranca">Segurança digital</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Links úteis</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.gov.br/"
+                        target="_blank" rel="noopener noreferrer">
+                            Portal Gov.br
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/"
+                        target="_blank" rel="noopener noreferrer">
+                            YouTube
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.safernet.org.br/"
+                        target="_blank" rel="noopener noreferrer">
+                            SaferNet Brasil
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                © <span id="year"></span> Conecta Cidadão — Tecnologia para Todos.
+            </p>
+            <p>Projeto de inclusão e educação digital.</p>
+        </div>
+
+    </div>
+</footer>
+
+<button class="back-top" id="backTop" aria-label="Voltar ao topo">
+    ↑
+</button>
+
+<script>
+
+/* MENU MOBILE */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function() {
+    const isOpen = navLinks.classList.toggle("active");
+
+    menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.innerHTML = isOpen ? "✕" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(function(link) {
+    link.addEventListener("click", function() {
+        navLinks.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.innerHTML = "☰";
+    });
+});
+
+/* ANO AUTOMÁTICO */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+/* BUSCA DE TUTORIAIS */
+
+const searchInput = document.getElementById("tutorialSearch");
+const tutorialCards = document.querySelectorAll(".tutorial-card");
+const noResults = document.getElementById("noResults");
+
+searchInput.addEventListener("input", function() {
+
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    tutorialCards.forEach(function(card) {
+
+        const content = card.textContent.toLowerCase();
+        const keywords = card.getAttribute("data-search").toLowerCase();
+
+        const matches =
+            content.includes(searchTerm) ||
+            keywords.includes(searchTerm);
+
+        card.style.display = matches ? "" : "none";
+
+        if (matches) {
+            visibleCount++;
+        }
+    });
+
+    noResults.style.display =
+        visibleCount === 0 ? "block" : "none";
+});
+
+/* AUMENTAR E DIMINUIR FONTE */
+
+let currentFontSize = 16;
+
+document.getElementById("fontIncrease").addEventListener("click", function() {
+
+    if (currentFontSize < 22) {
+        currentFontSize += 1;
+        document.body.style.fontSize = currentFontSize + "px";
+    }
+});
+
+document.getElementById("fontDecrease").addEventListener("click", function() {
+
+    if (currentFontSize > 12) {
+        currentFontSize -= 1;
+        document.body.style.fontSize = currentFontSize + "px";
+    }
+});
+
+/* BOTÃO VOLTAR AO TOPO */
+
+const backTop = document.getElementById("backTop");
+
+window.addEventListener("scroll", function() {
+
+    if (window.scrollY > 400) {
+        backTop.style.display = "block";
+    } else {
+        backTop.style.display = "none";
+    }
+});
+
+backTop.addEventListener("click", function() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+</script>
+
+</body>
+</html>
